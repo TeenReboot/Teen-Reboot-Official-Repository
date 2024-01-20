@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4285F4;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #map {
+            height: 400px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Website</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div>
+            <label for="startLocation">Start Location:</label>
+            <input type="text" id="startLocation" placeholder="Enter start location">
+
+            <label for="endLocation">End Location:</label>
+            <input type="text" id="endLocation" placeholder="Enter end location">
+
+            <button onclick="calculateRoute()">Get Directions</button>
+        </div>
+    </header>
+
+    <section>
+        <h2>Welcome to Your Website!</h2>
+        <div id="map"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        function calculateRoute() {
+            var startLocation = document.getElementById('startLocation').value;
+            var endLocation = document.getElementById('endLocation').value;
+
+            var map = L.map('map').setView([0, 0], 2);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(0, 0), // replace with your start location coordinates
+                    L.latLng(0, 0)  // replace with your end location coordinates
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+        }
+    </script>
+</body>
+</html>
