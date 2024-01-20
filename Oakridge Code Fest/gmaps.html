@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>Roam Rift</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,7 +65,7 @@
     </header>
 
     <section>
-        <h2>Welcome to Your Website!</h2>
+        <h2>Welcome to Roam Rift</h2>
         <div id="mapContainer">
             <!-- The iframe will be inserted here dynamically -->
         </div>
@@ -76,15 +76,10 @@
             var startLocation = document.getElementById('startLocation').value;
             var endLocation = document.getElementById('endLocation').value;
 
-            var iframeSrc = `https://www.google.com/maps/embed?pb=!1m10!1m3!1d124378.60628651286!2d77.68654940000002!3d13.04639860000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1705740246074!5m2!1sen!2sin!`;
-
-            if (startLocation && endLocation) {
-                // Update the coordinates in the iframe src
-                iframeSrc = `https://www.google.com/maps/embed?pb=!1m10!1m3!1d124378.60628651286!2d77.68654940000002!3d13.04639860000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s${encodeURIComponent(startLocation)}!2s${encodeURIComponent(endLocation)}!3m2!1d12.9698196!2d77.7499721!4m5!1s${encodeURIComponent(startLocation)}!2s${encodeURIComponent(endLocation)}!3m2!1d13.101268!2d77.6125565!5e0!3m2!1sen!2sin!4v1705740246074!5m2!1sen!2sin`;
-            }
-
+            var iframeSrc = `https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d124378.61284136675!2d77.60414738303827!3d13.046385569107064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3bae11f35d0dfc83%3A0x30cfa512d80115f9!2s{encodeURIComponent(startLocation)}%!3m2!1d12.9698196!2d77.7499721!4m5!1s0x3bae19ab6aed8fad%3A0x4a7bf0865566d71a!2s{encodeURIComponent(endLocation)}%20560064!3m2!1d13.101268!2d77.6125565!5e0!3m2!1sen!2sin!4v1705741053809!5m2!1sen!2sin`;
+            
             var mapContainer = document.getElementById('mapContainer');
-            mapContainer.innerHTML = `<iframe src="${iframeSrc}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+            mapContainer.innerHTML = `<iframe src="${iframeSrc}" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
         }
     </script>
 </body>
